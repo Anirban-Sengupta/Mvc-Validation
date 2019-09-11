@@ -10,11 +10,13 @@ import com.ani.MVCValidation.customAnno.Password;
 public class Employee {
  @Size(min=1,max=10, message="required") //spring MVC validation
  private String Name;
-// @Size(min=1, message="required") //spring MVC validation
-// @Pattern(regexp="^[a-zA-Z0-9]{8}",message="length must be 8") //spring Expression validation
+// @Size(min=1, message="required")                                    //spring MVC validation
+// @Pattern(regexp="^[a-zA-Z0-9]{8}",message="length must be 8")      //spring Expression validation
 // private String password;
+ 
  @Password  // Custom Annotation
- private String password;
+ @Pattern(regexp="^[a-zA-Z0-9]{8}",message="length must be 8") //spring Expression validation
+ private String password; 
  @Min(value=18, message="must be equal or greater than 18")  //minimum number annotation
  @Max(value=45, message="must be equal or less than 45")    // maximum number annotation
  private int age;  
